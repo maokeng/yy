@@ -306,4 +306,28 @@ footer .bottom{border-top:1px solid #000000;
 				flex:100%;
 				padding:3.5rem 0 0 5rem;
 				box-sizing: border-box;}
-/*以上为公共部分   小调即可  无需大改*/									
+/*以上为公共部分   小调即可  无需大改*/	
+
+.content{margin: 0 auto;
+	width:86%;
+}
+
+.content .c_top{}
+.content .c_top p{padding-left: 0.4rem;}
+.content .c_top h3{font-size: 3rem;}
+
+.content .c_bottom{display:flex;justify-content:space-between;flex-wrap:wrap;}
+.content .c_bottom .c_b_left{border: 1px solid #999999;width: 50%;}
+.content .c_bottom .c_b_left .car_top{}
+.content .c_bottom .c_b_left .car_top ul{display:flex;justify-content:space-between;flex-wrap:wrap;
+border-bottom: 1px solid #999999;
+}
+.content .c_bottom .c_b_left .car_top ul li{
+	line-height: 4rem;
+	
+}
+.content .c_bottom .c_b_left .car_top ul li:nth-child(2){
+	background: #999999;
+	
+}
+.content .c_bottom .c_b_right{width:10%;}								
