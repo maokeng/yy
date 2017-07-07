@@ -1,0 +1,10 @@
+div {
+  width: 100px;
+  height: 100px; }
+  div p {
+    width: 10000000000px;
+    height: 100px; }
+    div p a {
+      color: black; }
+
+/*# sourceMappingURL=a.css.map */
