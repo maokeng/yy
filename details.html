@@ -304,7 +304,6 @@
 			<h3>高跟鞋</h3>	
 		</section>
 		
-		<section ></section>
 		
 		
 		
@@ -336,33 +335,9 @@
 			</div>
 			
 			
+	
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			<dl>
+			<dl id="dl">
 				<dd>
 					<a>
 						<img  src="img/012070790704_01_01_307Wx307H.jpg"/>
@@ -518,3 +493,44 @@
 </html>
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/details.js"></script>
+<script>
+$(function(){
+	$.ajax({
+		url:"getGoodsList.php",
+		type:"get",
+		success:function(data){
+				console.log(data)
+			var obj=eval(data);
+			var str="";
+			//let str="<li><a href=''><img src='"+goodsImg+"'></a><div class='dring_thing-cort'><div class='dring_thing-price'>$ "+goodsPrice+"</div><p class='dring_thing-word'>"+goodsDesc+"</p><div class='dring_thing-button'><span>收藏</span><a href=''><i>立即购买</i></a></div><div class='dring_thing-sold'><span>已售：236.00</span><i>评价：<em>79</em></i></div></div></li>";
+			//$(".dring_thing").append(str);
+			for(var x=0;x<obj.length;x++){
+				for(var i=0;i<4;i++){
+				var goodsId=obj[i].goodsId;
+				var goodsPrice=obj[i].goodsPrice;
+				var goodsImg=obj[i].goodsImg;
+				var goodsDesc=obj[i].goodsDesc;
+				var beiyong1=obj[i].beiyong1;
+				var goodsName=obj[i].goodsName;
+				var strr="<a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a>";
+				//strr+=strr;
+				str+=strr;
+				}
+				//strr+strr+strr+strr
+				//let str="<dd><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a></dd>"
+				let ss="<dd>"+str+"</dd>";
+				$("#dl").append(ss);
+			}		
+		}		
+	});
+})
+
+</script>
+
+
+
+
+
+
+
+

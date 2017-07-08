@@ -1,32 +1,32 @@
 var gulp = require('gulp');
 gulp.task("copy",function(){
 	gulp.src("./**/*")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie"));
 	
 });
 gulp.task("copy-html",function(){
 	gulp.src("*.html")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie"));
 	
 });
 gulp.task("copy-img",function(){
 	gulp.src("img/*")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰\\img"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie\\img"));
 	
 });
 gulp.task("copy-php",function(){
 	gulp.src("php/*.php")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰\\php"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie\\php"));
 	
 });
 gulp.task("copy-js",function(){
 	gulp.src("js/*.js")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰\\js"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie\\js"));
 	
 });
 gulp.task("copy-css",function(){
 	gulp.src("css/*.css")
-	.pipe(gulp.dest("D:\\phpStudy\\WWW\\罗杰\\css"));
+	.pipe(gulp.dest("D:\\phpStudy\\WWW\\luojie\\css"));
 	
 });
 gulp.task("watch",function(){
