@@ -252,7 +252,7 @@ function checkAll(type,value){//需要判断的类型，比如电话，邮箱，
 		}
 		break;
 	case 'Phone':   			//如果类型是Phone的话，就执行下面的判断  
-		if((/^1[34578]\d{9}$/).test(value)){   //1开头后跟345678，后跟9个数字，结尾
+		if((/^1[34578]\d{9}$/).test(value)&& value!=""){   //1开头后跟345678，后跟9个数字，结尾
 			return true;   
 		}else{  
 			return false;
@@ -441,7 +441,16 @@ $("#Password01").blur(function(){
 	}
 });
 
-
+var submitBtn = document.getElementById("submit");
+var tagb = document.getElementsByTagName("p");
+ submitBtn.onclick = function (event) {
+ 	for(let i=0;i<tagb.length;i++){
+ 		if(tagb[i].innerHTML=="x枣糕，快删了重写" || tagb[i].innerHTML==""){
+ 			submitBtn.innerHTML="哪里没写？再来过";
+ 			return false;
+ 		}	
+ 	}
+ };
 
 
 

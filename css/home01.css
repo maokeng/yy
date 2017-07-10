@@ -9,7 +9,7 @@ header .box{background: #333;
 			flex-wrap:wrap;
 			}
 header .box ul{}
-header .box ul li{width: 2rem;
+header .box ul li{
 			 	 	font:0.86rem/2.88rem "";
 			  		box-sizing: border-box;
 			  		margin: 0 2rem;

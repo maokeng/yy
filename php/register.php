@@ -28,7 +28,7 @@
 	}else{
 		//2)、执行SQL语句
 		mysql_select_db("luojie",$con);
-		$str="insert into kehu(chengwei,ming,xing,ri,yue,nian,guojia,site,postcode,area,city,phone,email,password) values('".$chengwei."','".$ming."','".$xing."','".$ri."','".$yue."','".$nian."','".$guojia."','".$site."','".$postcode."','".$area."','".$city."','".$phone."','".$email."','".$password."')";
+		$str="insert into kehu1(chengwei,ming,xing,ri,yue,nian,guojia,site,postcode,area,city,phone,email,password) values('".$chengwei."','".$ming."','".$xing."','".$ri."','".$yue."','".$nian."','".$guojia."','".$site."','".$postcode."','".$area."','".$city."','".$phone."','".$email."','".$password."')";
 		echo $str;
 		
 
@@ -39,11 +39,13 @@
 		
 		//3、响应
 		if($count==1){
-			echo "注册成功";
+//			echo "注册成功";
+			echo '<script>window.location.href="http://localhost/luojie/Login.html?__hbt=1499659208931";</script>';
+			
 		}else{
-			echo "注册失败";
-		}
-		
-		
+//			echo "注册失败";
+			echo '<script language="javascript">location.href="Login.html";</script>';
+			
+		}	
 	}	
 ?>

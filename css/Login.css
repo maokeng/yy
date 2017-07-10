@@ -499,6 +499,7 @@ footer .bottom {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	padding:0 8rem;
 }
 
 .content .c_bottom .c_b_left {
@@ -506,7 +507,7 @@ footer .bottom {
 	box-sizing: border-box;
 	width: 40%;
 	text-align: center;
-	margin: 3rem auto;
+	margin: 3rem 0;
 }
 
 .content .c_bottom .c_b_left input {

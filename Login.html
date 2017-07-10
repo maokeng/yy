@@ -302,14 +302,14 @@
 		</header>
 
 		<section class="content">
-			<h4>注册</h4>
+			<h4>登录/注册</h4>
 			<div class="c_bottom">
 				<div class="c_b_left">
 					<h3>如果</h3>
 					<p>你已经找到了你的女神</p>
-					<input id="youxiang" type="text"  title="输入不对腿打折"  placeholder="账号*">
+					<input id="youxiang" type="email" name="email" title="输入不对腿打折"  placeholder="账号*">
 					<span class="emailTishi"></span>
-					<input type="password" id="Password" title="即将失去你的女神" placeholder="女神的生日*">
+					<input type="password" id="Password" name="password" title="即将失去你的女神" placeholder="女神的生日*">
 					<span class="PasswordQueren"></span>
 					<input type="button" value="GO" class="go" title="准备好了么？？？我的狗蛋"/>
 					<a href="javascript:;" title="狗带！！！">如果你忘了生日?</a>
@@ -322,46 +322,10 @@
 						<p>你的玩笑话你当真了</p>
 						<p>你认真的话你当玩笑了</p>
 					</div>
-					<a href="http://127.0.0.1:8020/%E7%BD%97%E6%9D%B0/register.html?__hbt=1498697351143">狗带</a>
+					<a href="http://localhost/luojie/register.html?__hbt=1499677340541">狗带</a>
 				</div>
 			</div>
 		</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -452,4 +416,27 @@
 </html>
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/Login.js"></script>
+<script type="text/javascript" src="js/cookieTools.js"></script>
+<script type="text/javascript">
+$(".go").click(function(){
+	$.ajax({
+		url:"php/login.php",
+		async:true,
+		data:"email="+$('#youxiang').val()+"&password="+$("#Password").val(),
+		type:"post",
+		success:function(data){
+			if(data=="1"){
+				//保存cookie
+				//saveCookie("email",$("#youxiang").val(),7);
+				 localStorage.setItem("email", $("#youxiang").val());	
+				location.href="http://localhost/luojie/homepa.html?__hbt=1499670251661";
+			}else{
+				$(".PasswordQueren").html("亲，用户名或者密码错误，登录失败，请想好再输！");
+			}
+		}
+	});	
+});
 
+
+
+</script>

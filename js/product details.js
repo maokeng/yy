@@ -214,7 +214,7 @@ $("#l04").mouseover(function(){
 
 //以上为01跟换图片
 
-
+$("#yangshi01").css("opacity","0.5");
 $("#yangshi01").click(function(){
 	$("#xianshi").attr('src',"img/xie600.jpg");
 	$("#yangshi01").css("opacity","0.5");

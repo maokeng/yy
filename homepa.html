@@ -17,10 +17,10 @@
 				</div>
 				<ul class="right">
 					<li>
-						<a href="javascript:;">登录</a>
+						<a href="http://localhost/luojie/Login.html?__hbt=1499677296517" id="denglu">登录zai</a>
 					</li>
 					<li>
-						<a href="http://127.0.0.1:8020/%E7%BD%97%E6%9D%B0/register.html?__hbt=1498697351143">注册</a>
+						<a href="http://localhost/luojie/register.html?__hbt=1499677340541">注册</a>
 					</li>
 					<ul id="texi" class="right">
 						<li>
@@ -217,7 +217,7 @@
 									<a href="javascript:;">鞋子</a>
 								</li>
 								<li>
-									<a href="http://127.0.0.1:8020/%E7%BD%97%E6%9D%B0/details.html?__hbt=1498870408553http://127.0.0.1:8020/%E7%BD%97%E6%9D%B0/details.html?__hbt=1498870408553">高跟鞋</a>
+									<a href="http://localhost/luojie/details.html?__hbt=1499680565441">高跟鞋</a>
 								</li>
 								<li>
 									<a href="javascript:;">凉鞋</a>
@@ -279,7 +279,7 @@
 									<a href="javascript:;">2017春夏系列</a>
 								</li>
 								<li id="l03">
-									<a href="javascript:;">婚礼系列</a>
+									<a href="http://localhost/luojie/wedding.html?__hbt=1499680601038">婚礼系列</a>
 								</li>
 								<li id="l04">
 									<a href="javascript:;">经典系列</a>
@@ -432,3 +432,11 @@
 </html>
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/h01.js"></script>
+<script>
+	var strStoreDate = window.localStorage? localStorage.getItem("email"): Cookie.read("email");	
+	if(strStoreDate==null){
+		$('#denglu').html("登录");
+	}else{
+		$('#denglu').html("买不起来了干嘛 : "+strStoreDate);	
+	}
+</script>

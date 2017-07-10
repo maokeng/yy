@@ -327,3 +327,62 @@ $("#Password").blur(function(){
 	}
 });
 
+/*
+	功能：设置cookie
+	参数1：键名
+	参数2：值
+	参数3：过期值（天数）
+	返回值：true:false
+	**/	
+function setCookie(key,value,time){
+	if(isCookie()){
+		var date=new Date();
+		date.setDate(date.getDate()+time);
+		document.cookie=key+"="+value+"; expires="+date.toGMTString();
+		return true;
+	}else{
+		return false;
+	}
+}//key+"="+key+"="+document.cookie = key+"="+encodeURIComponent(value)+";expires="+d.toGMTString();
+
+/*
+功能：获取cookie
+参数1：键名
+返回值：string:null:undefined
+**/	
+function getCookie(key){
+	if(isCookie()){
+		var arr=document.cookie.split("; ");
+		for(var i in arr){
+			var item=arr[i].split("=");
+			if(item[0]==key){
+				return item[1];
+			}
+		}
+		return null;
+	}else{
+		return undefined;
+	}
+ }
+/*
+功能：判断浏览器是否禁用cookie
+返回值：true:false
+**/	
+ function isCookie(){
+	return navigator.cookieEnabled?true:false;
+ }
+ /*
+功能：删除cookie
+参数1：键名
+返回值：true:false
+**/	
+function delCookie(key){
+	if(isCookie()){
+		var date=new Date();
+		date.setDate(date.getDate()-1);
+		document.cookie=key+"=1; expires="+date.toGMTString();
+		return true;
+	}else{
+		return false;
+	}	
+}
