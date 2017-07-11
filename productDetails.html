@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>罗杰维维亚</title>
-		<link href="css/product details.css" rel="stylesheet" type="text/css">
+		<link href="css/productDetails.css" rel="stylesheet" type="text/css">
 		<link href="css/public.css" rel="stylesheet" type="text/css">
 	</head>
 
@@ -307,22 +307,22 @@
 		</section>
 		<section class="content">
 			<div class="c_left">
-				<ul>
+				<ul id="ul"><!--
 					<li id="yangshi01"><img src="img/xie100.jpg" /></li>
 					<li id="yangshi02"><img src="img/xie01100.jpg" /></li>
 					<li id="yangshi03"><img src="img/012070790704_03_03_100Wx100H.jpg" /></li>
 					<li id="yangshi04"><img src="img/012070790704_04_04_100Wx100H.jpg" /></li>
 					<li id="yangshi05"><img src="img/012070790704_05_05_100Wx100H.jpg" /></li>
-				</ul>
+				--></ul>
 				<div class="c_l_right">
-					<img src="img/xie600.jpg" id="xianshi"/>
+					<!--<img src="img/xie600.jpg" id="xianshi"/>-->
 				</div>
 			</div>
 			<div class="c_right">
 				<b>— 我是很长的一条线</b>
-				<p>Belle Vivier<br/>Trompette喇叭吹了个喇嘛</p>
-				<span>chou.danshi.gui.a</span><br />
-				<i>￥ 9100.00</i>
+				<p id="shangpingming"></p>
+				<span id="shangpingmiaoshu">chou.danshi.gui.a</span><br />
+				<i id="jiage">￥ </i>
 				<div class="c_r_set">
 					<select name="">
 						<option value="">尺码</option>
@@ -340,7 +340,7 @@
 					</select>
 				</div>
 				<div class="c_r_a">
-					<a href="javascript:;">为女神买单</a>
+					<a href="javascript:;" id="maidan">为女神买单</a>
 					<a href="javascript:;">❤</a>
 				</div>
 				<a href="javascript:;" class="zhinan">尺码指南</a><br />
@@ -444,36 +444,39 @@
 
 </html>
 <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="js/product details.js"></script>
-<script>
+<script type="text/javascript" src="js/productDetails.js"></script>
+<script type="text/javascript">
 $(function(){
+	var email = window.localStorage? localStorage.getItem("email"): Cookie.read("email");
+	var goodsId = window.localStorage? localStorage.getItem("goodsId"): Cookie.read("goodsId");
+	var cc = "1";
+	$("#maidan").click(function(){
 	$.ajax({
-		url:"php/productDetails.php",
+		url:"php/addShoppingCart.php",
 		async:true,
-		type:"get",
+		data:{
+			vipName:email,
+			goodsId:goodsId,	
+			goodsCount:cc
+		},
+		type:"post",
 		success:function(data){
-				console.log(data)
-			var obj=eval(data);
-			var str="";
-//			for(var x=0;x<obj.length;x++){
-//				for(var i=0;i<4;i++){
-//				var goodsId=obj[i].goodsId;
-//				var goodsPrice=obj[i].goodsPrice;
-//				var goodsImg=obj[i].goodsImg;
-//				var goodsDesc=obj[i].goodsDesc;
-//				var beiyong1=obj[i].beiyong1;
-//				var goodsName=obj[i].goodsName;
-//				var strr="<a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a>";
-//				//strr+=strr;
-//				str+=strr;
-//				}
-//				//strr+strr+strr+strr
-//				//let str="<dd><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a></dd>"
-//				let ss="<dd>"+str+"</dd>";
-//				$("#dl").append(ss);
-//			}		
+			if(data=="1"){
+				//保存cookie
+				location.href="shoppingcar.html";
+			}else{
+				alert("添加失败，狗带狗带");
+			}
 		}		
 	});
+
+});
 })
+	
+	
+
+
+
 
 </script>
+

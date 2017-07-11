@@ -425,6 +425,7 @@ $(".go").click(function(){
 		data:"email="+$('#youxiang').val()+"&password="+$("#Password").val(),
 		type:"post",
 		success:function(data){
+			console.log(data)
 			if(data=="1"){
 				//保存cookie
 				//saveCookie("email",$("#youxiang").val(),7);

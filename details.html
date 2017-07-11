@@ -339,7 +339,7 @@
 			
 			<dl id="dl">
 				<dd>
-					<a>
+					<!--<a num="1">
 						<img  src="img/012070790704_01_01_307Wx307H.jpg"/>
 						<img src="img/012070790704_02_02_307Wx307H.jpg"/>
 						<p>sui ran bu hao kan danshi gui a</p>
@@ -363,7 +363,7 @@
 						<p>sui ran bu hao kan danshi gui a</p>
 						<p>￥ 9100.00</p>
 					</a>	
-				</dd>
+				</dd>-->
 				<dt>
 					<div class="d_left">
 						<a href="javascript:;">
@@ -497,13 +497,12 @@
 $(function(){
 	$.ajax({
 		url:"getGoodsList.php",
+		async:false,
 		type:"get",
 		success:function(data){
-				console.log(data)
+				//console.log(data)
 			var obj=eval(data);
 			var str="";
-			//let str="<li><a href=''><img src='"+goodsImg+"'></a><div class='dring_thing-cort'><div class='dring_thing-price'>$ "+goodsPrice+"</div><p class='dring_thing-word'>"+goodsDesc+"</p><div class='dring_thing-button'><span>收藏</span><a href=''><i>立即购买</i></a></div><div class='dring_thing-sold'><span>已售：236.00</span><i>评价：<em>79</em></i></div></div></li>";
-			//$(".dring_thing").append(str);
 			for(var x=0;x<obj.length;x++){
 				for(var i=0;i<4;i++){
 				var goodsId=obj[i].goodsId;
@@ -512,18 +511,23 @@ $(function(){
 				var goodsDesc=obj[i].goodsDesc;
 				var beiyong1=obj[i].beiyong1;
 				var goodsName=obj[i].goodsName;
-				var strr="<a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a>";
-				//strr+=strr;
+				var strr="<a numl='"+goodsId+"'><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a>";	
 				str+=strr;
 				}
-				//strr+strr+strr+strr
-				//let str="<dd><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a><a><img src='img/"+goodsImg+".jpg' /><img src='img/"+beiyong1+".jpg' /><p>"+goodsName+"</p><p>￥ "+goodsPrice+"</p></a></dd>"
-				let ss="<dd>"+str+"</dd>";
+				let ss="<dd >"+str+"</dd>";
 				$("#dl").append(ss);
 			}		
 		}		
 	});
+		var nums;
+		$("#dl a").click (function(){
+			nums = $(this).attr("numl");
+			localStorage.setItem("goodsId",nums);
+			location.href="productDetails.html";
+			//console.log(nums)
+		})
 })
+
 
 </script>
 

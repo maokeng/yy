@@ -1,5 +1,6 @@
 //以下为隐藏国家选项卡
-var f;
+$(function(){
+	var f;
 $("#guojia").click(function(){
 	 f = $("#lguojia").css("display")
 	if(f=="block"){
@@ -214,9 +215,45 @@ $("#l04").mouseover(function(){
 
 //以上为01跟换图片
 
+
+var goods = window.localStorage? localStorage.getItem("goodsId"): Cookie.read("goodsId");	
+	var	 obj;
+	var	 str="";
+	var goodsId,beiyong2,beiyong3,beiyong4,beiyong5,beiyong6,beiyong7,beiyong8,beiyong9,beiyong10,beiyong11,goodsName,goodsPrice;
+	$.ajax({
+		url:"php/productDetails.php",
+		async:false,
+		type:"get",
+		data:{goodsId:goods},
+		success:function(data){
+			 obj=eval("("+data+")");
+			 goodsId=obj.goodsId;
+			 beiyong2=obj.beiyong2;
+			 beiyong3=obj.beiyong3;
+			 beiyong4=obj.beiyong4;
+			 beiyong5=obj.beiyong5;
+			 beiyong6=obj.beiyong6;
+			 beiyong7=obj.beiyong7;
+			 beiyong8=obj.beiyong8;
+			 beiyong9=obj.beiyong9;
+			 beiyong10=obj.beiyong10;
+			 beiyong11=obj.beiyong11;
+ 			 goodsName=obj.goodsName;
+ 			 goodsPrice=obj.goodsPrice;
+			str = "<li id='yangshi01'><img src='img/"+beiyong2+".jpg' /></li><li id='yangshi02'><img src='img/"+beiyong3+".jpg' /></li><li id='yangshi03'><img src='img/"+beiyong4+".jpg' /></li><li id='yangshi04'><img src='img/"+beiyong5+".jpg' /></li><li id='yangshi05'><img src='img/"+beiyong6+".jpg' /></li>"
+			$("#ul").append(str);
+			var strr = "<img src='img/"+beiyong7+".jpg' id='xianshi'/>"
+			$(".c_l_right").append(strr);
+			$("#shangpingming").append(goodsName);
+			$("#jiage").append(goodsPrice);
+		}
+	});
+
+
+//setTimeout($("#yangshi01").css("opacity","0.5"),1000);
 $("#yangshi01").css("opacity","0.5");
 $("#yangshi01").click(function(){
-	$("#xianshi").attr('src',"img/xie600.jpg");
+	$("#xianshi").attr('src',"img/"+beiyong7+".jpg");
 	$("#yangshi01").css("opacity","0.5");
 	$("#yangshi02").css("opacity","1");
 	$("#yangshi03").css("opacity","1");
@@ -224,7 +261,7 @@ $("#yangshi01").click(function(){
 	$("#yangshi05").css("opacity","1");
 });
 $("#yangshi02").click(function(){
-	$("#xianshi").attr('src',"img/xie01600.jpg");
+	$("#xianshi").attr('src',"img/"+beiyong8+".jpg");
 	$("#yangshi01").css("opacity","1");
 	$("#yangshi02").css("opacity","0.5");
 	$("#yangshi03").css("opacity","1");
@@ -232,7 +269,7 @@ $("#yangshi02").click(function(){
 	$("#yangshi05").css("opacity","1");	
 });
 $("#yangshi03").click(function(){
-	$("#xianshi").attr('src',"img/012070790704_03_03_645Wx645H.jpg");
+	$("#xianshi").attr('src',"img/"+beiyong9+".jpg");
 	$("#yangshi01").css("opacity","1");
 	$("#yangshi02").css("opacity","1");
 	$("#yangshi03").css("opacity","0.5");
@@ -240,7 +277,7 @@ $("#yangshi03").click(function(){
 	$("#yangshi05").css("opacity","1");
 });
 $("#yangshi04").click(function(){
-	$("#xianshi").attr('src',"img/012070790704_04_04_645Wx645H.jpg");
+	$("#xianshi").attr('src',"img/"+beiyong10+".jpg");
 	$("#yangshi01").css("opacity","1");
 	$("#yangshi02").css("opacity","1");
 	$("#yangshi03").css("opacity","1");
@@ -249,7 +286,7 @@ $("#yangshi04").click(function(){
 	
 });
 $("#yangshi05").click(function(){
-	$("#xianshi").attr('src',"img/012070790704_05_05_645Wx645H.jpg");
+	$("#xianshi").attr('src',"img/"+beiyong11+".jpg");
 	$("#yangshi01").css("opacity","1");
 	$("#yangshi02").css("opacity","1");
 	$("#yangshi03").css("opacity","1");
@@ -267,6 +304,6 @@ $("#yangshi05").click(function(){
 
 
 
-
-
-
+	
+	
+})

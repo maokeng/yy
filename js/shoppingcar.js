@@ -215,3 +215,15 @@ $("#l04").mouseover(function(){
 });
 
 //以上为01跟换图片
+$(".shuliang").click(function(){
+			//alert("22")
+		let shuliang= $(".shuliang").val();//数量
+		//let xiaoji= $("#xiaoji").val();//小计
+		//let heji= $("#heji").val();//合计
+		let danjia= parseInt($("#danjia").text());//单价
+		//数量*单价=小计  合计
+		 $("#xiaoji").html( shuliang*danjia);
+		 $("#heji").html(shuliang*danjia);
+		
+			
+});
