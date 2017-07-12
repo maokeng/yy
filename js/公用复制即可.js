@@ -36,7 +36,7 @@ $("#kefu").click(function(){
 });
 
 //以下为隐藏查找选项卡
-$("#chazhao").click(function(){
+$(".topchazhao").click(function(){
 	 f = $("#cha").css("display")
 	if(f=="block"){
 		$("#xinyuan").css("display","none");

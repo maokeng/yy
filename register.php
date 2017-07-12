@@ -29,7 +29,7 @@
 		//2)、执行SQL语句
 		mysql_select_db("luojie",$con);
 		$str="insert into kehu1(chengwei,ming,xing,ri,yue,nian,guojia,site,postcode,area,city,phone,email,password) values('".$chengwei."','".$ming."','".$xing."','".$ri."','".$yue."','".$nian."','".$guojia."','".$site."','".$postcode."','".$area."','".$city."','".$phone."','".$email."','".$password."')";
-		//echo $str;
+		echo $str;
 		
 
 		$count = mysql_query($str,$con); 
@@ -38,14 +38,14 @@
 		mysql_close($con);
 		
 		//3、响应
-		echo $count;
-//		if($count==1){
-//			echo "true";
-//			//echo '<script>window.location.href="10.35.165.29/Login.html";</script>';
-//			
-//		}else{
-//			echo "false";
-//			//echo '<script">location.href="Login.html";</script>';
-//			
-//		}	
+		if($count==1){
+			echo "注册成功";
+			echo '<script>window.location.href="10.35.165.29/Login.html";</script>';
+			
+		}else{
+			echo "注册失败";
+			//echo '<script">location.href="Login.html";</script>';
+			
+		}	
+	}	
 ?>

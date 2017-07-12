@@ -215,15 +215,108 @@ $("#l04").mouseover(function(){
 });
 
 //以上为01跟换图片
-$(".shuliang").click(function(){
+
+$(".go").click(function(){
+	$.ajax({
+		url:"php/login.php",
+		async:true,
+		data:"email="+$('#youxiang').val()+"&password="+$("#Password").val(),
+		type:"post",
+		success:function(data){
+			if(data=="1"){
+				//保存cookie
+				//saveCookie("email",$("#youxiang").val(),7);
+				 localStorage.setItem("email", $("#youxiang").val());	
+				location.href="http://localhost/luojie/homepa.html?__hbt=1499670251661";
+			}else{
+				$(".PasswordQueren").html("亲，用户名或者密码错误，登录失败，请想好再输！");
+			}
+		}
+	});	
+});
+
+
+	var email = window.localStorage? localStorage.getItem("email"): Cookie.read("email");
+			//	console.log(email)
+	$.ajax({
+		url:"php/getShoppingCart.php",
+		async:false,
+		type:"get",
+		data:{
+			vipName:email,
+			},
+		success:function(data){
+				//console.log(data)
+			var obj=eval("("+data+")");
+			console.log(data)
+			var str="";
+			if(data=="[]"){
+				$(".kong").css("display","block");
+				
+			}else{
+				$(".kong").css("display","none");
+				for(let i=0;i<obj.length;i++){
+					//id  
+					var goodsId=obj[i].goodsId;
+					//图片
+					var beiyong2=obj[i].beiyong2;
+					var goodsName=obj[i].goodsName;
+					//尺寸
+					
+					//颜色
+					
+					//单价
+					var goodsPrice=obj[i].goodsPrice;
+					strr = "<li  class='list' num1='"+goodsId+"'><img src='img/"+beiyong2+".jpg'/><div class='li_center'><p id='p'>"+goodsName+"</p><span>RNW40123215646501</span><br /><b>尺码：<span class='chima'>36</span>颜色：<span class='yanse'>绿</span>	</b></div><select class='shuliang'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option></select><div class='li_right'><span >$<i class='danjia'>"+goodsPrice+"</i></span><br /><a href='#' class='shanchu'>买不起</a></div></li>";		
+					$("#h5").before(strr);
+					$("#heji").html(goodsPrice);
+					$("#xiaoji").html(goodsPrice);
+				}
+			}
+				
+		}			
+	});
+	
+
+/*$(".shuliang").click(function(){
 			//alert("22")
-		let shuliang= $(".shuliang").val();//数量
+		let shuliang= parseInt($(".shuliang").val());//数量
 		//let xiaoji= $("#xiaoji").val();//小计
 		//let heji= $("#heji").val();//合计
-		let danjia= parseInt($("#danjia").text());//单价
+		let danjia= parseInt($(".danjia").text());//单价
 		//数量*单价=小计  合计
 		 $("#xiaoji").html( shuliang*danjia);
 		 $("#heji").html(shuliang*danjia);
 		
 			
 });
+*/
+var nn=0;
+$(".list").on("change",".shuliang",function(){
+	var ssum=0;
+	var nn=0;
+	var y = Number($(this).val());
+	var yy = Number($(this).siblings().find(".danjia").html());
+	
+	
+	ssum+=y*yy;
+	
+	nn+=ssum;
+	console.log(nn)
+	
+})
+//setTimeout(yy(),2000);
+//function yy(){
+//	var zongjia,zongshuliang;
+//	$(".danjia").change(function(){
+//		;
+//		var dange = parseInt($(this).val());//单价
+//		var shuliang = parseInt($(this).next().children("span").val());
+//		zongjia += dange*shuliang;
+//		console.log(dange)
+//	});
+	
+	
+	
+//}
+//;

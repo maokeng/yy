@@ -17,10 +17,10 @@
 				</div>
 				<ul class="right">
 					<li>
-						<a href="javascript:;">登录</a>
+						<a href="Login.html">登录</a>
 					</li>
 					<li>
-						<a href="javascript:;">注册</a>
+						<a href="register.html">注册</a>
 					</li>
 					<ul id="texi" class="right">
 						<li>
@@ -40,7 +40,7 @@
 				            -->
 							<div id="xinyuan">
 								<img src="img/t19.png" />
-								<a href="javascript:;">注册</a>
+								<a href="register.html">注册</a>
 							</div>
 						</li>
 						<li>
@@ -172,7 +172,7 @@
             	描述：以下为2级菜单部分
             -->
 			<div class="box02">
-				<img src="img/t4.png" />
+				<a href="homepa.html"><img src="img/t4.png" /></a>
 				<div class="bottom xifuxiaoguo">
 					<!--
                         	描述：吸附隐藏LOGO
@@ -217,7 +217,7 @@
 									<a href="javascript:;">鞋子</a>
 								</li>
 								<li>
-									<a href="javascript:;">高跟鞋</a>
+									<a href="details.html">高跟鞋</a>
 								</li>
 								<li>
 									<a href="javascript:;">凉鞋</a>
@@ -279,7 +279,7 @@
 									<a href="javascript:;">2017春夏系列</a>
 								</li>
 								<li id="l03">
-									<a href="javascript:;">婚礼系列</a>
+									<a href="wedding.html">婚礼系列</a>
 								</li>
 								<li id="l04">
 									<a href="javascript:;">经典系列</a>
@@ -309,12 +309,12 @@
 		<section class="content">
 			<div class="c_top">
 				<h3>女神的购物车</h3>
-				<a href="#">怎能没有惊喜</a>
+				<a href="details.html">怎能没有惊喜</a>
 			</div>
 			<div class="c_bottom">
 				<ul class="c_b_left">
-					<li>
-						<!--<img src="img/xie100.jpg"/>-->
+					<!--<li>
+						<img src="img/xie100.jpg"/>
 						<div class="li_center">
 							<p id="p">喇叭吹了个喇嘛</p>
 							<span>RNW40123215646501</span><br />
@@ -329,15 +329,15 @@
 							<option value="3">3</option>
 						</select>
 						<div class="li_right">
-							<span >$<i id="danjia">5200.00</i></span><br />
+							<span >$<i id="danjia"></i></span><br />
 							<a href="#">买不起</a>
 						</div>
-					</li>
+					</li>-->
 					<li class="kong">
 						<img src="img/t20.png"/>
 						<p>什么都没有 ，去看看？</p>
 					</li>
-					<h5>
+					<h5 id="h5">
 						<p>发货</p>
 						<span>啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</span>
 					</h5>
@@ -351,11 +351,11 @@
 					</dt>
 					<dd>
 						<b>小计</b>
-						<i id="xiaoji">5200</i>
+						<i id="xiaoji"></i>
 					</dd>
 					<dd>
 						<b>合计</b>
-						<i id="heji">5200</i>
+						<i id="heji"></i>
 					</dd>
 					<p>来跟我读<br/>齐一吻（穷）</p>
 					<a href="javascript:;" class="maibuqi">买不起买不起</a>
@@ -459,24 +459,24 @@
 <script type="text/javascript" src="js/shoppingcar.js"></script>
 
 <script type="text/javascript">
-$(".go").click(function(){
-	$.ajax({
-		url:"php/login.php",
-		async:true,
-		data:"email="+$('#youxiang').val()+"&password="+$("#Password").val(),
-		type:"post",
-		success:function(data){
-			if(data=="1"){
-				//保存cookie
-				//saveCookie("email",$("#youxiang").val(),7);
-				 localStorage.setItem("email", $("#youxiang").val());	
-				location.href="http://localhost/luojie/homepa.html?__hbt=1499670251661";
-			}else{
-				$(".PasswordQueren").html("亲，用户名或者密码错误，登录失败，请想好再输！");
-			}
-		}
-	});	
-});
+//$(".go").click(function(){
+//	$.ajax({
+//		url:"php/login.php",
+//		async:true,
+//		data:"email="+$('#youxiang').val()+"&password="+$("#Password").val(),
+//		type:"post",
+//		success:function(data){
+//			if(data=="1"){
+//				//保存cookie
+//				//saveCookie("email",$("#youxiang").val(),7);
+//				 localStorage.setItem("email", $("#youxiang").val());	
+//				location.href="http://localhost/luojie/homepa.html?__hbt=1499670251661";
+//			}else{
+//				$(".PasswordQueren").html("亲，用户名或者密码错误，登录失败，请想好再输！");
+//			}
+//		}
+//	});	
+//});
 
 
 
@@ -486,41 +486,29 @@ $(".go").click(function(){
 
 
 <script>
-$(function(){
-	var email = window.localStorage? localStorage.getItem("email"): Cookie.read("email");
-	$.ajax({
-		url:"getGoodsList.php",
-		async:false,
-		type:"get",
-		data:{
-			vipName:email,
-			},
-		success:function(data){
-				//console.log(data)
-			var obj=eval("("+data+")");
-			var str="";
-			//id  
-			var goodsId=obj.goodsId;
-			//图片
-			var goodsImg=obj.goodsImg;
-			var goodsName=obj.goodsName;
-			//尺寸
-			
-			//颜色
-			
-			//单价
-			var goodsPrice=obj.goodsPrice;
-			//let ss="<dd >"+str+"</dd>";
-			
-			$(".li_center").before("<img src='img/"+goodsImg+".jpg'/>");
-			$("#p").html(goodsName);
-			$("#danjia").html(goodsPrice);
-		}			
-	});
+			var nums;
+			$("li .shanchu").click (function(){
+				nums = $(this).parent().parent().attr("num1");
+				console.log(nums)
+				$.ajax({
+					url:"php/deleteGoods.php",
+					async:false,
+					type:"get",
+					data:{
+						vipName:email,
+						goodsId:nums
+					},
+					success:function(data){
+						console.log(data)
+							if(data==1){
+							$(this).parent().parent().remove();
+							//tianjia(); 
+							window.location.href="shoppingcar.html";
+						}
+					}
+					});
 
-})
-
-
+			})
 </script>
 
 

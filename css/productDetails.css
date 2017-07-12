@@ -509,18 +509,27 @@ footer .bottom {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	width:74%;
 }
 
-.content .c_left ul {}
+.content .c_left ul {
+	width:12%;
+}
 
 .content .c_left ul li {
 	border: 1px solid #999;
 }
 
-.content .c_right {text-align: center;}
+.content .c_right {text-align: center;
+	width:24%
+}
 
-.content .c_l_right{margin-left: 8rem;}
-
+.content .c_l_right{
+	width:80%;
+}
+.content .c_l_right img{
+	width:90%;
+}
 
 
 .content .c_right b {

@@ -17,14 +17,14 @@
 				</div>
 				<ul class="right">
 					<li>
-						<a href="javascript:;">登录</a>
+						<a href="Login.html">登录</a>
 					</li>
 					<li>
-						<a href="javascript:;">注册</a>
+						<a href="register.html">注册</a>
 					</li>
 					<ul id="texi" class="right">
 						<li>
-							<a href="javascript:;" id="chazhao"><img src="img/t1.png" / id="cha_img01"></a>
+							<a href="javascript:;" class="topchazhao"><!--<img src="img/t1.png" / id="cha_img01">--></a>
 							<div id="cha">
 								<p>我想要的是：</p>
 								<input type="text" placeholder="无话不说..." />
@@ -40,7 +40,7 @@
 				            -->
 							<div id="xinyuan">
 								<img src="img/t19.png" />
-								<a href="javascript:;">注册</a>
+								<a href="register.html">注册</a>
 							</div>
 						</li>
 						<li>
@@ -172,7 +172,7 @@
             	描述：以下为2级菜单部分
             -->
 			<div class="box02">
-				<img src="img/t4.png" />
+				<a href="homepa.html"><img src="img/t4.png" /></a>
 				<div class="bottom xifuxiaoguo">
 					<!--
                         	描述：吸附隐藏LOGO
@@ -217,7 +217,7 @@
 									<a href="javascript:;">鞋子</a>
 								</li>
 								<li>
-									<a href="javascript:;">高跟鞋</a>
+									<a href="details.html">高跟鞋</a>
 								</li>
 								<li>
 									<a href="javascript:;">凉鞋</a>
@@ -279,7 +279,7 @@
 									<a href="javascript:;">2017春夏系列</a>
 								</li>
 								<li id="l03">
-									<a href="javascript:;">婚礼系列</a>
+									<a href="wedding.html">婚礼系列</a>
 								</li>
 								<li id="l04">
 									<a href="javascript:;">经典系列</a>
@@ -308,9 +308,9 @@
 		<section id="zhuce">
 			<div class="tou">
 				<h3>注册</h3>
-				<a href="http://localhost/luojie/Login.html?__hbt=1499677296517" class="danqie">返回</a>
+				<a href="Login.html" class="danqie">返回</a>
 			</div>
-			<form action="php/register.php" autocomplete="on" method="post">
+			<form action="register.php" autocomplete="on" method="post">
 
 				<dl>
 					<dt>
@@ -449,7 +449,7 @@
 
 					</div>
 					<div class="fanhui">
-						<a href="http://localhost/luojie/Login.html?__hbt=1499677296517" class="danqie">胆怯</a>
+						<a href="Login.html">返回</a>
 
 						<button  type="submit" class="yongqi" id="submit">勇气</button>
 					</div>
@@ -563,8 +563,31 @@ $("#youxiang").blur(function(){
 		}		
 	});	
 });
-	
-	
+//	$("#submit").click(function(){
+//		$.post("register.php",{username:$("#username").val(),userpass:$("#userpass").val()});
+//		alert("恭喜您，注册成功，请登录");
+//		location.href="login.html";
+//	});
+//	
 </script>
+<!--<script>
+	$("#submit").click(function(){
+	$.ajax({
+		url:"register.php",
+		async:true,
+		//data:"userName="+this.value,
+		type:"post",
+		success:function(data){
+			if(data=="1"){
+				$("#userInfo").html("233");
+			}else{
+				$("#userInfo").html("456");
+			}
+		}		
+	});	
+});
+	
+	
+</script>-->
 
 

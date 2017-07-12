@@ -60,7 +60,7 @@ $("#xinyuanbtn").click(function(){
 	if(f=="block"){
 		$("#cha").css("display","none");
 	    $("#xinyuan").css("display","none");
-	    $("#cha_img02").attr("src","img/t2.png");
+	    $("#cha_img02").attr("src","img/t21.png");
 	    
 	}else{
 		$("#xinyuan").css("display","block");
